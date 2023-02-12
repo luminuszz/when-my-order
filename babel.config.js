@@ -10,8 +10,8 @@ module.exports = (api) => {
           root: ["."],
           extensions: [".ts", ".tsx", ".js", ".ios.js", ".android.js", ".json"],
           alias: {
-            "@app": "./src",
-            "@core": "./src/core",
+            "@app": "./src/app",
+            "@infra": "./src/infra",
           },
         },
       ],

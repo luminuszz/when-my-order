@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1079447354118",
+    "project_id": "when-my-order",
+    "storage_bucket": "when-my-order.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079447354118:android:27c72f5021c59d621a3c87",
+        "android_client_info": {
+          "package_name": "com.whenmyorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079447354118-th1gop749qgojsub76srdmtcpl03ugb7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPoTDx_QXVfAUGf4xup5GAY9WKDTSS6zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079447354118-th1gop749qgojsub76srdmtcpl03ugb7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

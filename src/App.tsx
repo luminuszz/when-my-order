@@ -1,10 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
+
+import LoginScreen from "@app/screens/login.screen";
+import { NativeBaseProvider } from "native-base";
+import theme from "@infra/themes";
 
 export default function App() {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <NativeBaseProvider theme={theme}>
+      <LoginScreen />
+    </NativeBaseProvider>
   );
 }

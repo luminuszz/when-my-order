@@ -9,10 +9,10 @@
     "module": "esnext",
     "paths": {
       "@app/*": [
-        "./src/*"
+        "./src/app/*"
       ],
-      "@core/*": [
-        "./src/core/*"
+      "@infra/*": [
+        "./src/infra/*"
       ]
     }
   },
