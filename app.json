@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "when-my-order",
+    "slug": "when-my-order",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
