@@ -1,4 +1,4 @@
-import { type User } from "@app/app/entities/user";
+import { type User } from "@app/entities/user";
 
 export interface LoginWithGoogleResponse {
   user: User;

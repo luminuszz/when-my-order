@@ -1,35 +1,47 @@
 import {
   type LoginServiceProvider,
   type LoginWithGoogleResponse,
-} from "@app/services/login-service-provider";
+} from "@app/contracts/login-service-provider";
 
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 import auth from "@react-native-firebase/auth";
 import { type User } from "@app/entities/user";
+import { FirebaseError } from "@infra/firebase/firebase.error";
 
 export class LoginServiceFirebaseProvider implements LoginServiceProvider {
-  constructor(private readonly firebaseAuth: typeof auth) {}
+  constructor(private readonly firebaseAuth: typeof auth) {
+    GoogleSignin.configure({});
+  }
 
   async loginWithGoogle(): Promise<LoginWithGoogleResponse> {
-    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    try {
+      await GoogleSignin.hasPlayServices({
+        showPlayServicesUpdateDialog: true,
+      });
 
-    const { idToken } = await GoogleSignin.signIn();
+      const { idToken } = await GoogleSignin.signIn();
 
-    const googleCredential =
-      this.firebaseAuth.GoogleAuthProvider.credential(idToken);
+      const googleCredential =
+        this.firebaseAuth.GoogleAuthProvider.credential(idToken);
 
-    const results = await this.firebaseAuth().signInWithCredential(
-      googleCredential
-    );
+      const results = await this.firebaseAuth().signInWithCredential(
+        googleCredential
+      );
 
-    return {
-      user: {
-        name: results.user.displayName ?? "user",
-        id: results.user.uid,
-        email: results.user.email ?? "",
-      },
-    };
+      return {
+        user: {
+          name: results.user.displayName ?? "user",
+          id: results.user.uid,
+          email: results.user.email ?? "",
+        },
+      };
+    } catch (e) {
+      if (e instanceof Error) {
+        throw new FirebaseError(e.message, "auth");
+      }
+      throw e;
+    }
   }
 
   onUserChanges(callback: (user: User | null) => void): () => void {
