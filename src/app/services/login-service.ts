@@ -8,7 +8,7 @@ export class LoginService {
     return await this.loginServiceProvider.loginWithGoogle();
   }
 
-  async onUserChanges(callback: (user: User | null) => void) {
+  onUserChanges(callback: (user: User | null) => void) {
     return this.loginServiceProvider.onUserChanges(callback);
   }
 }
